@@ -1,5 +1,4 @@
 <?php
-return array();
 return array(
     'seo_url' => array(
         // minimal length of given string
