@@ -2,8 +2,8 @@ SeoUrl
 ============================
 
 Simple ZF2 SEO Url generator. Module converts strings to valid Urls. For example:
-"I'm starting a new project – which version of Zend Framework should I use?" will be converted to
-"im-starting-a-new-project-which-version-of-zend-framework-should-i-use". SEO Url Module works also with non latin characters.
+`I'm starting a new project – which version of Zend Framework should I use?` will be converted to
+`im-starting-a-new-project-which-version-of-zend-framework-should-i-use`. SEO Url Module works also with non latin characters.
 
 
 
@@ -38,7 +38,7 @@ echo $slug->create("I'm starting a new project – which version of Zend Framewo
 
 Advanced use of SEO Url
 ------------
-By default SEO Url use parameters defined in 'config/autoload/seourl.global.php'. But one might need to use different setup in different places around the code. In this case one can overwrite default confid parameters.
+By default SEO Url use parameters defined in `config/autoload/seourl.global.php`. But one might need to use different setup in different places around the code. In this case one can overwrite default confid parameters.
 ```php
 $slug = $this->getServiceLocator()->get('SeoUrl\Slug');
 $slug->setMinLength(10);
