@@ -5,7 +5,7 @@ Simple ZF2 SEO Url generator. Module converts strings to valid Urls. For example
 `I'm starting a new project – which version of Zend Framework should I use?` will be converted to
 `im-starting-a-new-project-which-version-of-zend-framework-should-i-use`. SEO Url Module works also with non latin characters.
 
-For string convertation I'm using part of CodeIgniter helper [url_title()](http://ellislab.com/codeigniter/user-guide/helpers/url_helper.html "CodeIgniter - Url helper").
+For string convertation I'm using part of CodeIgniter's helper [url_title()](http://ellislab.com/codeigniter/user-guide/helpers/url_helper.html "CodeIgniter - Url helper").
 
 
 
