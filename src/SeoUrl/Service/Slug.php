@@ -21,10 +21,82 @@ class Slug
      * @var array
      */
     protected $config = array();
-
+    
+    /**
+     * @var string
+     */
+    protected $separator;
+    
+    /**
+     * @var int
+     */
+    protected $min_length;
+    
+    /**
+     * @var int
+     */
+    protected $max_length;
+    
+    /**
+     * @var string
+     */
+    protected $string_encoding;
+    
+    /**
+     * @var array
+     */
+    protected $foreign_chars = array();
+    
+    
     public function __construct($config)
     {
-        $this->config = $config;
+        $this->config           = $config;
+        $this->separator        = $config['separator'];
+        $this->min_length       = $config['min_length'];
+        $this->max_length       = $config['max_length'];
+        $this->string_encoding  = $config['string_encoding'];
+        $this->foreign_chars    = $config['foreign_chars'];
+    }
+    
+
+    /**
+     * @param string $separator
+     */
+    public function setSeparator($separator)
+    {
+        $this->separator = $separator;
+    }
+
+	/**
+     * @param int $min_length
+     */
+    public function setMinLength($min_length)
+    {
+        $this->min_length = $min_length;
+    }
+
+	/**
+     * @param int $max_length
+     */
+    public function setMaxLength($max_length)
+    {
+        $this->max_length = $max_length;
+    }
+
+	/**
+     * @param string $string_encoding
+     */
+    public function setStringEncoding($string_encoding)
+    {
+        $this->string_encoding = $string_encoding;
+    }
+    
+	/**
+     * @param array $foreign_chars
+     */
+    public function setForeignChars(array $foreign_chars)
+    {
+        $this->foreign_chars = $foreign_chars;
     }
 
     
@@ -43,7 +115,7 @@ class Slug
             throw new \Exception('String does not have a valid format.');
         }
         
-        $separator = $this->config['separator'];
+        $separator = $this->separator;
         $q_separator = preg_quote($separator, '#');
         
         $trans = array(
@@ -60,7 +132,7 @@ class Slug
         }
         
         $str = strtolower($str);
-        $str = substr($str, 0, $this->config['max_length']);
+        $str = substr($str, 0, $this->max_length);
         return trim(trim($str, $separator));
     }
 
@@ -82,7 +154,7 @@ class Slug
             throw new \Exception('Given variable is not string.');
         }
         
-        if (mb_strlen($str, $this->config['string_encoding']) < $this->config['min_length']) {
+        if (mb_strlen($str, $this->string_encoding) < $this->min_length) {
             throw new \Exception('Given string is too short.');
         }
         
@@ -100,8 +172,8 @@ class Slug
         static $array_from, $array_to;
         
         if (! is_array($array_from)) {
-            $array_from = array_keys($this->config['foreign_chars']);
-            $array_to = array_values($this->config['foreign_chars']);
+            $array_from = array_keys($this->foreign_chars);
+            $array_to = array_values($this->foreign_chars);
         }
         
         return preg_replace($array_from, $array_to, $str);
