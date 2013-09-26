@@ -52,8 +52,8 @@ class Slug
     {
         $this->config           = $config;
         $this->separator        = $config['separator'];
-        $this->min_length       = $config['min_length'];
-        $this->max_length       = $config['max_length'];
+        $this->min_length       = (int) $config['min_length'];
+        $this->max_length       = (int) $config['max_length'];
         $this->string_encoding  = $config['string_encoding'];
         $this->foreign_chars    = $config['foreign_chars'];
     }
@@ -72,7 +72,7 @@ class Slug
      */
     public function setMinLength($min_length)
     {
-        $this->min_length = $min_length;
+        $this->min_length = (int) $min_length;
     }
 
 	/**
@@ -80,7 +80,7 @@ class Slug
      */
     public function setMaxLength($max_length)
     {
-        $this->max_length = $max_length;
+        $this->max_length = (int) $max_length;
     }
 
 	/**
