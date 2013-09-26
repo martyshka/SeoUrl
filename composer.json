@@ -1,0 +1,31 @@
+{
+    "name": "cyrkulewski/seo-url",
+    "description": "Module converts any string to valid URL",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Aleksander Cyrkulewski",
+            "email": "cyrkulewski@gmail.com"
+        }
+    ],
+    "keywords" : [
+        "SEO",
+        "Url",
+        "zf2",
+        "slug"
+    ],
+    "homepage" : "https://github.com/martyshka/SeoUrl",
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.3.0",
+        "zendframework/zendframework" : "2.*"
+    },
+    "autoload" : {
+        "psr-0" : {
+            "SeoUrl" : "src"
+        },
+        "classmap" : [
+            "./Module.php"
+        ]
+    }
+}
